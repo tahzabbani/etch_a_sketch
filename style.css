@@ -1,0 +1,25 @@
+.grid {
+    text-align: center;
+}
+
+.container {
+    border: 2px solid black;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.btn {
+    width: 100px;
+}
+
+#btns {
+    margin-top: 10px;
+}
+
+#clear {
+    margin-top: 15px;
+}
+
+body {
+    background-color: #edc7b7;
+}
