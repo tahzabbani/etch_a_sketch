@@ -1,8 +1,8 @@
 const containerSize = 300;
-let gameMode = "shader";
+let gameMode = "rainbow";
 
+//buttons
 const black = document.querySelector('#black');
-const shader = document.querySelector('#shader');
 const rainbow = document.querySelector('#rainbow');
 const clear = document.querySelector('#clear');
 
@@ -12,6 +12,7 @@ container.style.width = container.style.height = containerSize + 'px';
 
 let sides = 16;
 
+mode(gameMode);
 generateGrid(sides);
 
 function generateGrid(sides) {
@@ -28,18 +29,52 @@ function generateGrid(sides) {
     }
 }
 
-function clearGrid() {
+function destroyGrid() {
     const square = document.querySelectorAll('.square');
-    square
+    square.forEach(function(div) {
+        div.parentNode.removeChild(div)
+    });
 }
 
-container.addEventListener('mouseover', e => {
-    e.target.style.backgroundColor = 'black';
-})
+function clearGrid() {
+    const square = document.querySelectorAll('.square');
+    square.forEach(div => (div.style.backgroundColor = "#c4c4c4"));
+}
+
+function randomNumber() {
+    var num = Math.floor(Math.random() * 255);
+    return num;
+}
+
+function mode(gameMode) {
+    container.addEventListener('mouseover',
+        e => {
+            if (gameMode == "black") {
+                e.target.style.backgroundColor = 'black';
+                e.target.style.opacity = 1.1;
+            } else if (gameMode == "rainbow") {
+                var r = randomNumber();
+                var g = randomNumber();
+                var b = randomNumber();
+                e.target.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+                e.target.style.opacity = 1.1;
+            }
+        });
+}
 
 clear.addEventListener('click', e => {
-            document.location.reload();
-            sides = prompt("Enter a number for the number of squares per side\n\n DISCLAIMER: " +
-                "Might break if number is too high. It's not my fault that you're demanding.");
-            generateGrid(sides);
-        }
+    destroyGrid();
+    sides = prompt("Enter a number for the number of squares per side\n\n DISCLAIMER: " +
+        "Might break if number is too high. It's not my fault that you're demanding.");
+    generateGrid(sides);
+})
+
+black.addEventListener('click', e => {
+    gameMode = 'black';
+    mode(gameMode);
+})
+
+rainbow.addEventListener('click', e => {
+    gameMode = 'rainbow';
+    mode(gameMode);
+})
