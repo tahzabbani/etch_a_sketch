@@ -1,5 +1,5 @@
-const containerSize = 300;
-let gameMode = "rainbow";
+const containerSize = 560;
+let gameMode = "black";
 
 //buttons
 const black = document.querySelector('#black');
