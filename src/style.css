@@ -8,6 +8,14 @@
     background-color: #feffff;
 }
 
+.square {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
 .btn {
     width: 100px;
     height: 100px;
