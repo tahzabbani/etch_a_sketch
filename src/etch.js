@@ -49,17 +49,22 @@ function randomNumber() {
 }
 
 function mode(gameMode) {
+    let mousedown = false
     container.addEventListener('mouseover',
         e => {
-            if (gameMode == "black") {
-                e.target.style.backgroundColor = 'black';
-                e.target.style.opacity = 1.1;
-            } else if (gameMode == "rainbow") {
-                var r = randomNumber();
-                var g = randomNumber();
-                var b = randomNumber();
-                e.target.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
-                e.target.style.opacity = 1.1;
+            container.addEventListener('mousedown', e => mousedown = true)
+            container.addEventListener('mouseup', e => mousedown = false)
+            if (mousedown){
+                if (gameMode == "black") {
+                    e.target.style.backgroundColor = 'black';
+                    e.target.style.opacity = 1.1;
+                } else if (gameMode == "rainbow") {
+                    var r = randomNumber();
+                    var g = randomNumber();
+                    var b = randomNumber();
+                    e.target.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+                    e.target.style.opacity = 1.1;
+                }
             }
         });
 }
