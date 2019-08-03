@@ -19,8 +19,15 @@
     color: #feffff
 }
 
+.btn:hover,
+#clear:hover {
+    border-color: gold;
+    transform: scale(1.1, 1.1);
+    cursor: pointer;
+}
+
 .footer {
-    text-align: center;
+    text-align: left;
     position: fixed;
     bottom: 5px;
     width: 100%;
