@@ -29,6 +29,7 @@ function generateGrid(sides) {
     }
 }
 
+
 function destroyGrid() {
     const square = document.querySelectorAll('.square');
     square.forEach(function(div) {
@@ -36,6 +37,7 @@ function destroyGrid() {
     });
 }
 
+//not useful
 function clearGrid() {
     const square = document.querySelectorAll('.square');
     square.forEach(div => (div.style.backgroundColor = "#c4c4c4"));
